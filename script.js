@@ -35,9 +35,9 @@ function resetTimer() {
 
 function lapTimer() {
   if (timeRunning) {
-    let lapTime = elapsedTime;
-    lapTimes.push(lapTime);
-    let lapTimeString = formatTime(lapTime);
+    let currentTime = Date.now() - startTime;
+    let lapTimeString = formatTime(currentTime);
+    lapTimes.push(currentTime);
     let lapListItem = document.createElement('li');
     lapListItem.textContent = `Lap ${lapTimes.length}: ${lapTimeString}`;
     document.getElementById('lap-times').appendChild(lapListItem);
